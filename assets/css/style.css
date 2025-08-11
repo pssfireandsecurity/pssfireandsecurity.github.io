@@ -14,10 +14,41 @@
     box-sizing: border-box;
 }
 
+/* Fix horizontal scroll and overflow issues */
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+/* Ensure all major containers don't overflow */
+.container,
+.header,
+.hero,
+.services,
+.why-choose,
+.testimonials,
+.gallery-preview,
+.cta,
+.contact,
+.footer {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 /* MOBILE PRIORITY - Font and Color Fix */
 @media (max-width: 768px) {
     *:not([class*="fa-"]):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fat):not(.fa) {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        color: #64748b !important;
+        line-height: 1.6 !important;
     }
     
     /* Font Awesome Icon Fix - Preserve icon fonts */
@@ -79,6 +110,356 @@
         max-width: 100% !important;
         padding: 0 1rem !important;
         margin: 0 auto !important;
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+}
+
+/* Desktop Layout Fix - Prevent horizontal overflow */
+@media (min-width: 769px) {
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .container {
+        max-width: 1200px !important;
+        padding: 0 2rem !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Hero Section Desktop Fixes */
+    .hero {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
+        color: white !important;
+    }
+    
+    .hero h1,
+    .hero .hero-title {
+        color: #ffffff !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    }
+    
+    .hero p,
+    .hero .hero-subtitle {
+        color: #cbd5e1 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    }
+    
+    .hero .btn-secondary {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
+        border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    }
+    
+    .hero .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.2) !important;
+        color: #ffffff !important;
+    }
+    
+    .hero .security-badge i {
+        color: #ffffff !important;
+        font-size: 2rem !important;
+        display: inline-block !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .hero .security-badge {
+        background: rgba(249, 115, 22, 0.2) !important;
+        border: 1px solid rgba(249, 115, 22, 0.3) !important;
+        border-radius: 50% !important;
+        padding: 1rem !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .hero .hero-card h3 {
+        color: #ffffff !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    }
+    
+    .hero .hero-card p {
+        color: #cbd5e1 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    }
+    
+    /* Services Section Desktop Fixes - Light Mode */
+    .services {
+        background: #ffffff !important;
+        color: #1e293b !important;
+        padding: 5rem 0 !important;
+    }
+    
+    .services .section-title {
+        color: #0f172a !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        font-weight: 700 !important;
+        font-size: 2.5rem !important;
+        margin-bottom: 1rem !important;
+        text-align: center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: #0f172a !important;
+        background-clip: unset !important;
+        text-shadow: none !important;
+        display: block !important;
+    }
+    
+    .services .section-subtitle {
+        color: #64748b !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        font-size: 1.125rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 3rem !important;
+        text-align: center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Services Grid - 2x2 Desktop Layout */
+    .services-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+        max-width: 1000px !important;
+        margin: 0 auto !important;
+        padding: 0 2rem !important;
+    }
+    
+    .service-card {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 1rem !important;
+        padding: 2rem !important;
+        color: #1e293b !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-8px) scale(1.02) !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+        border-color: #3b82f6 !important;
+    }
+    
+    .service-card h3 {
+        color: #0f172a !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        font-weight: 600 !important;
+        font-size: 1.25rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .service-card p {
+        color: #64748b !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        line-height: 1.6 !important;
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .service-card .service-icon {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+        border-radius: 1rem !important;
+        padding: 1rem !important;
+        margin-bottom: 1.5rem !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .service-card .service-icon i {
+        color: #ffffff !important;
+        font-size: 2rem !important;
+        display: inline-block !important;
+    }
+    
+    .service-card .service-features li {
+        color: #64748b !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        font-size: 0.875rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Testimonials Section Desktop Fixes - Enhanced Color Visibility */
+    .testimonials {
+        background: #ffffff !important;
+        color: #1e293b !important;
+        padding: 5rem 0 !important;
+    }
+    
+    .testimonials .section-title {
+        color: #0f172a !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        font-weight: 700 !important;
+        font-size: 2.5rem !important;
+        margin-bottom: 1rem !important;
+        text-align: center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .testimonials .section-subtitle {
+        color: #475569 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        font-size: 1.125rem !important;
+        max-width: 600px !important;
+        margin: 0 auto 3rem auto !important;
+        line-height: 1.7 !important;
+        text-align: center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        font-weight: 400 !important;
+    }
+    
+    /* Testimonials Grid Layout */
+    .testimonials-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+        gap: 2rem !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        padding: 0 2rem !important;
+    }
+    
+    .testimonial-card {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 1rem !important;
+        padding: 2rem !important;
+        color: #1e293b !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative !important;
+    }
+    
+    .testimonial-card:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+        border-color: #3b82f6 !important;
+    }
+    
+    .testimonial-card p,
+    .testimonial-card .testimonial-text {
+        color: #334155 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        line-height: 1.6 !important;
+        font-size: 1rem !important;
+        font-weight: 400 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .quote-icon {
+        color: #3b82f6 !important;
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+        opacity: 0.7 !important;
+    }
+    
+    .quote-icon i {
+        color: #3b82f6 !important;
+        font-size: 1.5rem !important;
+    }
+    
+    .testimonial-author {
+        display: flex !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        margin-top: 1.5rem !important;
+        padding-top: 1.5rem !important;
+        border-top: 1px solid #f1f5f9 !important;
+    }
+    
+    .author-avatar {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+        border-radius: 50% !important;
+        padding: 0.75rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 3rem !important;
+        min-height: 3rem !important;
+    }
+    
+    .author-avatar i {
+        color: #ffffff !important;
+        font-size: 1.25rem !important;
+    }
+    
+    .testimonial-author h4,
+    .testimonial-author .author-name,
+    .author-info h4,
+    .author-info .author-name {
+        color: #0f172a !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+        margin: 0 0 0.25rem 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        line-height: 1.4 !important;
+    }
+    
+    .testimonial-author span,
+    .testimonial-author .author-title,
+    .author-info p,
+    .author-info .author-title {
+        color: #475569 !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+        font-size: 0.875rem !important;
+        font-weight: 500 !important;
+        margin: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        line-height: 1.4 !important;
+    }
+    
+    .testimonial-rating {
+        display: flex !important;
+        gap: 0.25rem !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .testimonial-rating i {
+        color: #fbbf24 !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Ensure all sections are contained */
+    .hero,
+    .services,
+    .why-choose,
+    .testimonials,
+    .gallery-preview,
+    .cta,
+    .contact,
+    .footer {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Fix any grid or flex containers that might overflow */
+    .services-grid,
+    .gallery-grid,
+    .contact-cards,
+    .footer-content {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
     }
 }
 
@@ -9268,47 +9649,75 @@ html {
         opacity: 0.8 !important;
     }
     
-    /* Comprehensive Gallery Preview Mobile Optimization */
+    /* Enhanced Mobile Gallery Preview - Comprehensive Redesign */
     .gallery-preview {
-        padding: 4rem 0 !important;
+        padding: 3rem 0 !important;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+        position: relative !important;
+        overflow: hidden !important;
     }
     
+    .gallery-preview::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.02)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.02)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.01)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') !important;
+        opacity: 0.5 !important;
+        z-index: 1 !important;
+    }
+    
+    .gallery-preview .container {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
     .gallery-preview .section-badge {
-        background: rgba(59, 130, 246, 0.2) !important;
-        color: #ffffff !important;
-        border: 1px solid rgba(59, 130, 246, 0.3) !important;
-        padding: 0.75rem 1.5rem !important;
-        border-radius: 25px !important;
-        font-size: 0.9rem !important;
+        background: linear-gradient(135deg, #3b82f6, #1e40af) !important;
+        color: white !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        padding: 0.75rem 1.25rem !important;
+        border-radius: 20px !important;
+        font-size: 0.875rem !important;
         font-weight: 600 !important;
         margin-bottom: 1.5rem !important;
         display: inline-flex !important;
         align-items: center !important;
         gap: 0.5rem !important;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
     }
     
-    .gallery-preview .section-badge i,
-    .gallery-preview .section-badge .fas.fa-camera {
-        color: #ffffff !important;
-        font-size: 1rem !important;
+    .gallery-preview .section-badge i {
+        color: white !important;
+        font-size: 0.875rem !important;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
     }
     
     .gallery-preview .section-title {
-        color: #F97316 !important;
-        font-size: 2rem !important;
+        color: #f97316 !important;
+        font-size: 1.875rem !important;
         font-weight: 800 !important;
         text-align: center !important;
         margin-bottom: 1rem !important;
+        text-shadow: 0 2px 4px rgba(249, 115, 22, 0.3) !important;
+        line-height: 1.2 !important;
     }
     
     .gallery-preview .section-subtitle {
-        color: #ffffff !important;
-        opacity: 0.9 !important;
+        color: rgba(255, 255, 255, 0.9) !important;
         font-size: 1rem !important;
-        line-height: 1.7 !important;
+        line-height: 1.6 !important;
         text-align: center !important;
-        margin-bottom: 3rem !important;
+        margin-bottom: 2.5rem !important;
         font-weight: 400 !important;
+        max-width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
     }
     
     /* Fix Gallery Description Text - Ensure bright white color */
@@ -9377,331 +9786,251 @@ html {
         font-size: 1rem !important;
     }
     
-    /* Mobile Grid Optimization */
+    /* Mobile Gallery Grid - Enhanced Card-based Layout */
     .gallery-grid {
         display: grid !important;
         grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
+        gap: 1.25rem !important;
         padding: 0 1rem !important;
-        max-width: 500px !important;
+        max-width: 100% !important;
         margin: 0 auto !important;
     }
     
     .gallery-item {
-        height: 300px !important;
+        height: 280px !important;
         border-radius: 16px !important;
         background: rgba(255, 255, 255, 0.1) !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
         overflow: hidden !important;
         position: relative !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        cursor: pointer !important;
     }
     
-    /* Comprehensive Gallery Text Color Fixes - Ensure ALL text is white */
-    
-    /* Gallery Section Badge Text */
-    .gallery-preview .section-badge,
-    .gallery-preview .section-badge * {
-        color: #ffffff !important;
+    .gallery-item:active {
+        transform: scale(0.98) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
     }
     
-    /* Gallery Section Subtitle - Main description */
-    .gallery-preview .section-subtitle,
-    .gallery-preview .section-subtitle * {
-        color: #ffffff !important;
-        opacity: 0.9 !important;
-    }
-    
-    /* All Gallery Card Text Elements */
-    .gallery-overlay h3,
-    .gallery-overlay .gallery-title,
-    .gallery-content h3,
-    .gallery-content .gallery-title,
-    .gallery-item h3,
-    .gallery-item .gallery-title {
-        color: #ffffff !important;
-        font-weight: 700 !important;
-    }
-    
-    .gallery-overlay p,
-    .gallery-overlay .gallery-description,
-    .gallery-content p,
-    .gallery-content .gallery-description,
-    .gallery-item p,
-    .gallery-item .gallery-description {
-        color: #ffffff !important;
-        opacity: 0.9 !important;
-    }
-    
-    /* Gallery Tags - Force white text */
-    .gallery-tags,
-    .gallery-tags *,
-    .gallery-tags .tag,
-    .tag {
-        color: #ffffff !important;
-        background: rgba(59, 130, 246, 0.3) !important;
-        border-color: rgba(59, 130, 246, 0.5) !important;
-    }
-    
-    /* Gallery Stats Text */
-    .gallery-stats .stat-number,
-    .gallery-stats .stat-label,
-    .gallery-footer .stat-number,
-    .gallery-footer .stat-label {
-        color: #ffffff !important;
-    }
-    
-    /* View Full Gallery Button */
-    .gallery-cta,
-    .gallery-cta a,
-    .gallery-footer a,
-    .gallery-footer .cta-btn,
-    .gallery-footer .btn {
-        color: #ffffff !important;
-        background: linear-gradient(135deg, #1e40af, #3b82f6) !important;
-        padding: 12px 24px !important;
-        border-radius: 25px !important;
-        text-decoration: none !important;
-        font-weight: 700 !important;
-        border: none !important;
-    }
-    
-    .gallery-cta:hover,
-    .gallery-cta a:hover,
-    .gallery-footer a:hover,
-    .gallery-footer .cta-btn:hover {
-        color: #ffffff !important;
-        background: linear-gradient(135deg, #1d4ed8, #2563eb) !important;
-    }
-    
-    /* Remove conflicting gallery button styles - using unified approach above */
-    
-    /* Ensure all nested elements in gallery are white */
-    .gallery-preview *,
-    .gallery-preview p,
-    .gallery-preview span,
-    .gallery-preview div {
-        color: #ffffff !important;
-    }
-    
-    /* Override any other styles that might interfere */
-    .gallery-preview .section-title {
-        color: #F97316 !important; /* Keep title orange for contrast */
-    }
-    
-    .placeholder-icon i {
-        color: #F97316 !important; /* Keep icons orange for contrast */
-    }
-    
-    /* Gallery Image Styling for Real Images */
+    /* Gallery Images Mobile - Optimized Display */
     .gallery-img {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
         object-position: center !important;
         border-radius: 16px !important;
-        transition: transform 0.3s ease !important;
+        transition: all 0.3s ease !important;
         display: block !important;
+        filter: brightness(0.9) contrast(1.1) !important;
     }
     
-    .gallery-item:hover .gallery-img {
-        transform: scale(1.05) !important;
+    /* Mobile Image Touch Effects */
+    .gallery-item:active .gallery-img {
+        filter: brightness(0.8) contrast(1.1) !important;
     }
     
-    /* Special Image Handling for Different Types */
-    /* Residential Protection - Smaller size, centered */
-    .gallery-img[src*="page10_img1"] {
-        width: 80% !important;
-        height: 80% !important;
-        object-fit: cover !important;
-        object-position: center center !important;
-        border-radius: 16px !important;
-        display: block !important;
-        margin: 0 auto !important;
-    }
-    
-    /* Ensure Residential Protection gallery container is properly centered */
-    .gallery-item:has(.gallery-img[src*="page10_img1"]) .gallery-image,
-    .gallery-item:nth-child(3) .gallery-image {
-        position: relative !important;
-        overflow: hidden !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    
-    .gallery-item:has(.gallery-img[src*="page10_img1"]) .gallery-img,
-    .gallery-item:nth-child(3) .gallery-img {
-        position: relative !important;
-        width: 80% !important;
-        height: 80% !important;
-        object-fit: cover !important;
-        object-position: center center !important;
-    }
-    
-    /* Security Personnel - Larger size for better visibility */
-    .gallery-img[src*="security-personnel"],
-    .security-personnel-img {
-        width: 120% !important;
-        height: 120% !important;
-        object-fit: cover !important;
-        object-position: center center !important;
-        border-radius: 16px !important;
-        display: block !important;
-        margin: 0 auto !important;
-        transform: scale(1.1) !important;
-    }
-    
-    /* Control Room Setup - Larger centered display */
-    .control-room-img {
-        width: 80% !important;
-        height: 80% !important;
-        object-fit: contain !important;
-        object-position: center center !important;
-        background: #f8f9fa !important;
-        border-radius: 16px !important;
-        padding: 10px !important;
-        transition: transform 0.3s ease !important;
-        margin: auto !important;
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        display: block !important;
-    }
-    
-    /* Security Personnel - Make larger and more prominent */
-    .security-personnel-img {
-        width: 90% !important;
-        height: 90% !important;
-        object-fit: cover !important;
-        object-position: center center !important;
-        border-radius: 16px !important;
-        transition: transform 0.3s ease !important;
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        display: block !important;
-    }
-    
-    /* Safety Training - Enhanced display and proper sizing */
-    .gallery-img[src*="SafetyTraining"] {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center center !important;
-        border-radius: 16px !important;
-        display: block !important;
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        background: #ffffff !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
-    }
-    
-    /* Safety Training container - ensure proper display */
-    .gallery-item:has(.gallery-img[src*="SafetyTraining"]) .gallery-image,
-    .gallery-item:nth-child(6) .gallery-image {
-        position: relative !important;
-        overflow: hidden !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: #f8f9fa !important;
-    }
-    
-    .gallery-item:hover .control-room-img {
-        transform: translate(-50%, -50%) scale(1.05) !important;
-    }
-    
-    .gallery-item:hover .security-personnel-img {
-        transform: translate(-50%, -50%) scale(1.05) !important;
-    }
-    
-    .gallery-image {
-        position: relative !important;
-        overflow: hidden !important;
-        border-radius: 16px !important;
-    }
-    
-    /* Ensure overlay appears properly over images */
-    .gallery-overlay {
+    /* Mobile Gallery Information Overlay */
+    .gallery-item::after {
+        content: attr(data-title) !important;
         position: absolute !important;
         bottom: 0 !important;
         left: 0 !important;
         right: 0 !important;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), transparent) !important;
-        z-index: 10 !important;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent) !important;
+        color: white !important;
+        padding: 1.5rem 1rem 1rem !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+        opacity: 0.9 !important;
+        pointer-events: none !important;
     }
     
-    /* Mobile Gallery Overlay - Hide Text on Mobile */
-    .gallery-overlay {
+    /* Hide desktop overlay elements on mobile */
+    .gallery-overlay,
+    .gallery-content,
+    .gallery-action,
+    .gallery-tags {
+        display: none !important;
         opacity: 0 !important;
-        transform: translateY(100%) !important;
         visibility: hidden !important;
         pointer-events: none !important;
     }
     
-    /* Mobile - Ensure all text content is hidden */
-    .gallery-content,
-    .gallery-content h3,
-    .gallery-content p,
-    .gallery-tags,
-    .gallery-action {
-        opacity: 0 !important;
-        visibility: hidden !important;
+    /* Mobile Gallery Pagination */
+    .gallery-pagination {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        margin-top: 2rem !important;
+        padding: 0 1rem !important;
     }
     
-    /* Mobile Gallery Images - Specific Fixes */
-    /* Residential Protection - Proper centering on mobile */
+    .pagination-dot {
+        width: 10px !important;
+        height: 10px !important;
+        border-radius: 50% !important;
+        background: rgba(255, 255, 255, 0.3) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .pagination-dot.active {
+        background: #f97316 !important;
+        border-color: #f97316 !important;
+        box-shadow: 0 0 10px rgba(249, 115, 22, 0.5) !important;
+        transform: scale(1.2) !important;
+    }
+    
+    /* Mobile Gallery Stats - Simplified */
+    .gallery-preview .gallery-stats {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1rem !important;
+        margin: 2.5rem 1rem 2rem !important;
+        text-align: center !important;
+    }
+    
+    .gallery-preview .stat-item {
+        background: rgba(255, 255, 255, 0.1) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-radius: 12px !important;
+        padding: 1rem 0.5rem !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .gallery-preview .stat-item:active {
+        transform: scale(0.98) !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+    }
+    
+    .gallery-preview .stat-number {
+        color: #f97316 !important;
+        font-size: 1.5rem !important;
+        font-weight: 800 !important;
+        display: block !important;
+        margin-bottom: 0.25rem !important;
+        text-shadow: 0 1px 3px rgba(249, 115, 22, 0.3) !important;
+    }
+    
+    .gallery-preview .stat-label {
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 0.75rem !important;
+        font-weight: 500 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+    }
+    
+    /* Mobile Gallery CTA Buttons */
+    .gallery-preview .gallery-cta {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        padding: 0 1rem !important;
+        margin-top: 1.5rem !important;
+    }
+    
+    .gallery-preview .btn {
+        width: 100% !important;
+        padding: 1rem 1.5rem !important;
+        border-radius: 12px !important;
+        font-weight: 600 !important;
+        font-size: 1rem !important;
+        transition: all 0.3s ease !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.5rem !important;
+        text-decoration: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+    }
+    
+    .gallery-preview .btn-primary {
+        background: linear-gradient(135deg, #f97316, #ea580c) !important;
+        color: white !important;
+        box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4) !important;
+    }
+    
+    .gallery-preview .btn-primary:active {
+        transform: translateY(1px) !important;
+        box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3) !important;
+    }
+    
+    .gallery-preview .btn-secondary {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+        border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        backdrop-filter: blur(10px) !important;
+    }
+    
+    .gallery-preview .btn-secondary:active {
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        transform: translateY(1px) !important;
+    }
+    
+    .gallery-preview .btn i {
+        font-size: 1rem !important;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+    }
+    
+    /* Mobile-Specific Image Optimizations */
     .gallery-img[src*="page10_img1"] {
-        width: 100% !important;
-        height: 100% !important;
         object-fit: cover !important;
         object-position: center center !important;
     }
     
-    /* Security Personnel - Larger display on mobile */
+    .gallery-img[src*="security-personnel"],
     .security-personnel-img {
-        width: 100% !important;
-        height: 100% !important;
         object-fit: cover !important;
-        object-position: center center !important;
-        position: static !important;
-        transform: none !important;
-        border-radius: 16px !important;
+        object-position: center top !important;
     }
     
-    /* Control Room - Proper mobile display */
+    .gallery-img[src*="page12_img4"],
     .control-room-img {
-        width: 100% !important;
-        height: 100% !important;
         object-fit: cover !important;
         object-position: center center !important;
-        position: static !important;
-        transform: none !important;
-        padding: 0 !important;
-        background: none !important;
-        border-radius: 16px !important;
     }
     
-    /* Safety Training - Ensure proper display on mobile */
     .gallery-img[src*="SafetyTraining"] {
-        width: 100% !important;
-        height: 100% !important;
         object-fit: cover !important;
         object-position: center center !important;
     }
     
-    /* Mobile - Remove any hover behaviors - keep text hidden */
-    .gallery-item:hover .gallery-overlay {
-        opacity: 0 !important;
-        transform: translateY(100%) !important;
-        visibility: hidden !important;
+    /* Mobile Gallery Loading Animation */
+    @keyframes galleryFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
-}
-
+    
+    .gallery-item {
+        animation: galleryFadeIn 0.6s ease-out forwards !important;
+    }
+    
+    .gallery-item:nth-child(1) { animation-delay: 0.1s !important; }
+    .gallery-item:nth-child(2) { animation-delay: 0.2s !important; }
+    .gallery-item:nth-child(3) { animation-delay: 0.3s !important; }
+    .gallery-item:nth-child(4) { animation-delay: 0.4s !important; }
+    .gallery-item:nth-child(5) { animation-delay: 0.5s !important; }
+    .gallery-item:nth-child(6) { animation-delay: 0.6s !important; }
 /* Desktop Gallery Hover Effects - Text appears only on hover */
 @media (min-width: 769px) {
     .gallery-overlay {
@@ -9841,4 +10170,707 @@ html {
             text-shadow: none !important;
         }
     }
+}
+
+/* ========================================
+   DESKTOP GALLERY PREVIEW SECTION FIXES
+   ======================================== */
+
+/* Desktop override: Fix gallery preview section completely */
+@media (min-width: 769px) {
+  /* Gallery Preview Section Desktop Layout */
+  .gallery-preview {
+    background: #f8fafc !important;
+    padding: 80px 0 !important;
+    position: relative !important;
+  }
+  
+  .gallery-preview .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+  }
+  
+  /* Section Badge Desktop */
+  .gallery-preview .section-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: linear-gradient(135deg, #3b82f6, #1e40af) !important;
+    color: white !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    margin-bottom: 20px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .gallery-preview .section-badge i {
+    color: white !important;
+    font-size: 0.875rem !important;
+  }
+  
+  /* Section Header Desktop */
+  .gallery-preview .section-header {
+    text-align: center !important;
+    margin-bottom: 60px !important;
+  }
+  
+  .gallery-preview .section-title {
+    color: #0f172a !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+  
+  .gallery-preview .section-subtitle {
+    color: #475569 !important;
+    font-size: 1.125rem !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    line-height: 1.6 !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    background: none !important;
+    text-shadow: none !important;
+  }
+  
+  /* Gallery Grid Desktop - 6 Items Layout */
+  .gallery-preview .gallery-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(2, 1fr) !important;
+    gap: 25px !important;
+    margin-top: 60px !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    min-height: 600px !important;
+  }
+  
+  /* Gallery Items Desktop - All Equal Size */
+  .gallery-preview .gallery-item {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background: white !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08) !important;
+    position: relative !important;
+    height: 280px !important;
+    cursor: pointer !important;
+  }
+  
+  .gallery-preview .gallery-item:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.2) !important;
+    z-index: 20 !important;
+  }
+  
+  /* Remove featured item spanning - all items equal */
+  .gallery-preview .gallery-item.featured {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    height: 280px !important;
+  }
+  
+  /* Gallery Images Desktop - Enhanced Zoom Effects */
+  .gallery-preview .gallery-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border-radius: 12px !important;
+  }
+  
+  .gallery-preview .gallery-item.featured .gallery-img {
+    height: 100% !important;
+    min-height: 280px !important;
+  }
+  
+  .gallery-preview .gallery-item:hover .gallery-img {
+    transform: scale(1.08) !important;
+    filter: brightness(0.9) !important;
+  }
+  
+  /* Special handling for different image types */
+  .gallery-preview .gallery-img[src*="page10_img1"] {
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+  
+  .gallery-preview .gallery-img[src*="security-personnel"],
+  .gallery-preview .security-personnel-img {
+    object-fit: cover !important;
+    object-position: center top !important;
+  }
+  
+  .gallery-preview .gallery-img[src*="page12_img4"],
+  .gallery-preview .control-room-img {
+    object-fit: cover !important;
+    object-position: center center !important;
+    background: #f8f9fa !important;
+  }
+  
+  .gallery-preview .gallery-img[src*="SafetyTraining"] {
+    object-fit: cover !important;
+    object-position: center center !important;
+    background: #ffffff !important;
+  }
+  
+  /* Enhanced hover effects for all images */
+  .gallery-preview .gallery-item:hover .gallery-img[src*="page10_img1"] {
+    transform: scale(1.1) !important;
+  }
+  
+  .gallery-preview .gallery-item:hover .security-personnel-img,
+  .gallery-preview .gallery-item:hover .gallery-img[src*="security-personnel"] {
+    transform: scale(1.06) !important;
+  }
+  
+  .gallery-preview .gallery-item:hover .control-room-img,
+  .gallery-preview .gallery-item:hover .gallery-img[src*="page12_img4"] {
+    transform: scale(1.08) !important;
+  }
+  
+  .gallery-preview .gallery-item:hover .gallery-img[src*="SafetyTraining"] {
+    transform: scale(1.09) !important;
+  }
+  
+  /* Gallery Overlay Desktop */
+  .gallery-preview .gallery-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7), transparent) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(20px) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding: 25px !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+  }
+  
+  .gallery-preview .gallery-item:hover .gallery-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Gallery Content Desktop */
+  .gallery-preview .gallery-content {
+    color: white !important;
+    z-index: 12 !important;
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transform: translateY(0) !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .gallery-preview .gallery-title {
+    color: white !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    line-height: 1.3 !important;
+    transform: translateY(0) !important;
+    transition: all 0.3s ease 0.1s !important;
+  }
+  
+  .gallery-preview .gallery-description {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 0.875rem !important;
+    margin-bottom: 12px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(0) !important;
+    transition: all 0.3s ease 0.15s !important;
+  }
+  
+  /* Gallery Tags Desktop */
+  .gallery-preview .gallery-tags {
+    display: flex !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 15px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    transition: all 0.3s ease 0.2s !important;
+  }
+  
+  .gallery-preview .tag {
+    background: rgba(59, 130, 246, 0.9) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
+    color: white !important;
+    padding: 4px 10px !important;
+    border-radius: 12px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.025em !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .gallery-preview .tag:hover {
+    background: rgba(59, 130, 246, 1) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4) !important;
+  }
+  
+  /* Gallery Action Button Desktop - Enhanced Visibility */
+  .gallery-preview .gallery-action {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: scale(0.7) rotate(-5deg) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 25 !important;
+  }
+  
+  .gallery-preview .gallery-item:hover .gallery-action {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scale(1) rotate(0deg) !important;
+  }
+  
+  .gallery-preview .gallery-btn {
+    width: 48px !important;
+    height: 48px !important;
+    background: linear-gradient(135deg, #f97316, #ea580c) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4), 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+    outline: none !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  .gallery-preview .gallery-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+    transition: left 0.5s ease !important;
+  }
+  
+  .gallery-preview .gallery-btn:hover::before {
+    left: 100% !important;
+  }
+  
+  .gallery-preview .gallery-btn:hover {
+    background: linear-gradient(135deg, #3b82f6, #1e40af) !important;
+    color: white !important;
+    transform: scale(1.2) !important;
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.5), 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+    border-color: rgba(255, 255, 255, 1) !important;
+  }
+  
+  .gallery-preview .gallery-btn:active {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4), 0 3px 6px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .gallery-preview .gallery-btn i {
+    color: inherit !important;
+    font-size: 1rem !important;
+    font-weight: 900 !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .gallery-preview .gallery-btn:hover i {
+    transform: scale(1.1) !important;
+  }
+  
+  /* Gallery Footer Desktop */
+  .gallery-preview .gallery-footer {
+    margin-top: 60px !important;
+    text-align: center !important;
+  }
+  
+  .gallery-preview .gallery-stats {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    margin-bottom: 40px !important;
+  }
+  
+  .gallery-preview .stat-item {
+    text-align: center !important;
+  }
+  
+  .gallery-preview .stat-number {
+    color: #0f172a !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    display: block !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .gallery-preview .stat-label {
+    color: #64748b !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+  }
+  
+  /* Gallery CTA Buttons Desktop */
+  .gallery-preview .gallery-cta {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+  }
+  
+  .gallery-preview .btn {
+    color: white !important;
+    text-decoration: none !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  
+  .gallery-preview .btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #1e40af) !important;
+    color: white !important;
+  }
+  
+  .gallery-preview .btn-primary:hover {
+    background: linear-gradient(135deg, #1e40af, #1e3a8a) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+  }
+  
+  .gallery-preview .btn-secondary {
+    background: transparent !important;
+    border: 2px solid #3b82f6 !important;
+    color: #3b82f6 !important;
+  }
+  
+  .gallery-preview .btn-secondary:hover {
+    background: #3b82f6 !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+  }
+  
+  .gallery-preview .btn i {
+    color: inherit !important;
+    font-size: 0.875rem !important;
+  }
+  
+  /* Responsive Gallery Desktop Adjustments */
+  @media (min-width: 1024px) and (max-width: 1200px) {
+    .gallery-preview .gallery-grid {
+      gap: 20px !important;
+      max-width: 1000px !important;
+    }
+    
+    .gallery-preview .gallery-item {
+      height: 260px !important;
+    }
+  }
+  
+  /* Large Desktop Adjustments - Enhanced 6-Item Grid */
+  @media (min-width: 1400px) {
+    .gallery-preview .container {
+      max-width: 1400px !important;
+    }
+    
+    .gallery-preview .gallery-grid {
+      gap: 35px !important;
+      max-width: 1300px !important;
+    }
+    
+    .gallery-preview .gallery-item {
+      height: 320px !important;
+    }
+    
+    .gallery-preview .gallery-btn {
+      width: 50px !important;
+      height: 50px !important;
+    }
+    
+    .gallery-preview .gallery-btn i {
+      font-size: 1.125rem !important;
+    }
+  }
+  
+  /* Ultra-wide Screen Support */
+  @media (min-width: 1600px) {
+    .gallery-preview .gallery-grid {
+      max-width: 1500px !important;
+      gap: 40px !important;
+    }
+    
+    .gallery-preview .gallery-item {
+      height: 350px !important;
+    }
+  }
+}
+
+/* ========================================
+   DESKTOP TESTIMONIALS SECTION FIXES
+   ======================================== */
+
+/* Desktop override: Fix testimonials section completely */
+@media (min-width: 769px) {
+  /* Testimonials Section Desktop Layout */
+  .testimonials {
+    background: #f8fafc !important;
+    padding: 80px 0 !important;
+    position: relative !important;
+  }
+  
+  .testimonials .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+  }
+  
+  /* Section Header Desktop */
+  .testimonials .section-header {
+    text-align: center !important;
+    margin-bottom: 60px !important;
+  }
+  
+  .testimonials .section-title {
+    color: #0f172a !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+  
+  .testimonials .section-subtitle {
+    color: #475569 !important;
+    font-size: 1.125rem !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    line-height: 1.6 !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  
+  /* Testimonials Grid Desktop - 3 Column Layout */
+  .testimonials-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 30px !important;
+    margin-top: 60px !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* Testimonial Card Desktop */
+  .testimonial-card {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 30px !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08) !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid #e2e8f0 !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.15) !important;
+  }
+  
+  /* Quote Icon Desktop */
+  .testimonials .quote-icon {
+    width: 48px !important;
+    height: 48px !important;
+    background: linear-gradient(135deg, #3b82f6, #1e40af) !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 20px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25) !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .testimonials .quote-icon i {
+    color: white !important;
+    font-size: 1.25rem !important;
+    font-weight: 900 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  .testimonials .testimonial-card:hover .quote-icon {
+    transform: scale(1.05) !important;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35) !important;
+  }
+  
+  /* Testimonial Text Desktop */
+  .testimonials .testimonial-text {
+    color: #374151 !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.7 !important;
+    margin-bottom: 25px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    flex-grow: 1 !important;
+    font-style: italic !important;
+  }
+  
+  /* Rating Stars Desktop */
+  .testimonials .testimonial-rating {
+    color: #fbbf24 !important;
+    font-size: 1rem !important;
+    margin-bottom: 20px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    gap: 2px !important;
+  }
+  
+  .testimonials .testimonial-rating i {
+    color: #fbbf24 !important;
+    margin-right: 2px !important;
+    font-size: 0.875rem !important;
+  }
+  
+  /* Author Section Desktop */
+  .testimonials .testimonial-author {
+    display: flex !important;
+    align-items: center !important;
+    margin-top: auto !important;
+    padding-top: 20px !important;
+    border-top: 1px solid #e2e8f0 !important;
+    gap: 15px !important;
+  }
+  
+  .testimonials .author-avatar {
+    width: 50px !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .testimonials .author-avatar i {
+    color: white !important;
+    font-size: 1.2rem !important;
+  }
+  
+  /* Author Info Desktop */
+  .testimonials .author-info {
+    flex-grow: 1 !important;
+  }
+  
+  .testimonials .author-info h4,
+  .testimonials .author-info .author-name {
+    color: #0f172a !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin: 0 0 5px 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    line-height: 1.3 !important;
+  }
+  
+  .testimonials .author-info p,
+  .testimonials .author-info .author-title {
+    color: #64748b !important;
+    font-size: 0.875rem !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Responsive Desktop Adjustments */
+  @media (min-width: 1024px) and (max-width: 1200px) {
+    .testimonials-grid {
+      gap: 25px !important;
+    }
+    
+    .testimonial-card {
+      padding: 25px !important;
+    }
+  }
+  
+  /* Large Desktop Adjustments */
+  @media (min-width: 1400px) {
+    .testimonials .container {
+      max-width: 1400px !important;
+    }
+    
+    .testimonials-grid {
+      gap: 40px !important;
+    }
+    
+    .testimonial-card {
+      padding: 35px !important;
+    }
+  }
 }
